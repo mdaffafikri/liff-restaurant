@@ -68,9 +68,11 @@ function initializeApp() {
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
-        document.getElementById('liffLoginButton').disabled = true;        
+        document.getElementById('login').disabled = true;   
+        $("#greeting").toggleClass('hidden')     
     } else {
-        document.getElementById('liffLogoutButton').disabled = true;
+        $("#app").toggleClass('hidden')
+        document.getElementById('logout').disabled = true;
     }
 }
  
@@ -98,12 +100,8 @@ function displayLiffData() {
 function displayIsInClientInfo() {
     if (liff.isInClient()) {
         document.getElementById('login').classList.toggle('hidden');
-        document.getElementById('logout').classList.toggle('hidden');
-        // document.getElementById('isInClientMessage').textContent = 'You are opening the app in the in-app browser of LINE.';
+        document.getElementById('logout').classList.toggle('hidden');        
     } 
-    // else {
-    //     document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
-    // }
 }
 
 function registerButtonHandlers() {
