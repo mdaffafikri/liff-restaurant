@@ -25,8 +25,7 @@ window.onload = function() {
         initializeLiffOrDie(myLiffId);
     }
 };
- 
-liff.init()
+
 /**
 * Check if myLiffId is null. If null do not initiate liff.
 */
