@@ -94,6 +94,9 @@ function displayLiffData() {
         // img.alt = 'Profile Picture';
         // profilePictureDiv.appendChild(img);
 
+        $("#profilePicture").attr("src", profile.pictureUrl);
+        $("#profilePicture").attr("alt", 'Profile Picture');
+
         document.getElementById('statusMessageField').textContent = profile.statusMessage;
         toggleProfileData();
     }).catch(function(error) {
