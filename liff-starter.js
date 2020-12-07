@@ -72,6 +72,9 @@ function initializeApp() {
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
     }
+    liff.getProfile().then(function(profile) {
+        document.getElementById('text').textContent = profile.userName;
+    });
 }
  
 /**
@@ -96,16 +99,13 @@ function displayIsInClientInfo() {
 }
 
 function registerButtonHandlers() {
-    liff.getProfile().then(function(profile) {
-        document.getElementById('text').textContent = profile.userName;
-    });
 
     $('#openWindowButton').click(function(){
         console.log("clicked");
-        // liff.openWindow({
-        //     url: 'https://mabar.herokuapp.com/',
-        //     external: true
-        // });        
+        liff.openWindow({
+            url: 'https://burgershot.herokuapp.com/',
+            external: true
+        });        
     });
 
     $('#closeWindowButton').click(function(){
