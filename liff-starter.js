@@ -80,7 +80,10 @@ function initializeApp() {
 function displayLiffData() {    
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    document.getElementById('text').textContent = liff.getProfile().displayName;
+    var userProfileName = liff.getProfile().then(function(profile){
+        return profile.displayName;
+    });
+    document.getElementById('text').textContent = userProfileName;
 }
  
 /**
@@ -104,7 +107,6 @@ function registerButtonHandlers() {
             url: 'https://burgershot.herokuapp.com/',
             external: true
         });        
-        document.getElementById('text').textContent = liff.getProfile().displayName;
     });
 
     $('#closeWindowButton').click(function(){
