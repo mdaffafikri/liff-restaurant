@@ -83,7 +83,7 @@ function displayLiffData() {
     liff.getProfile().then(function(profile) {
         document.getElementById('userIdProfileField').textContent = profile.userId;
         document.getElementById('displayNameField').textContent = profile.displayName;
-    }
+    })
 }
  
 /**
