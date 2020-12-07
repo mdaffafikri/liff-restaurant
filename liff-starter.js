@@ -100,10 +100,10 @@ function displayLiffData() {
 * Toggle the login/logout buttons based on the isInClient status, and display a message accordingly
 */
 function displayIsInClientInfo() {
-    // if (liff.isInClient()) {
-    //     document.getElementById('login').classList.toggle('hidden');
-    //     document.getElementById('logout').classList.toggle('hidden');        
-    // } 
+    if (liff.isInClient()) {
+        document.getElementById('login').addClass('hidden');
+        document.getElementById('logout').addClass('hidden');
+    } 
 }
 
 function registerButtonHandlers() {
