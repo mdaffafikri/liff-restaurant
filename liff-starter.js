@@ -97,6 +97,7 @@ function displayIsInClientInfo() {
 
 function registerButtonHandlers() {
     $("#pesan").click(function(){
+        console.log("worked");
         liff.openWindow({
             url: 'https://line.me',
             external: true
