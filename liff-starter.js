@@ -69,9 +69,9 @@ function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         document.getElementById('login').disabled = true;   
-        // $("#greeting").addClass('hidden')     
+        $("#greeting").addClass('hidden')     
     } else {
-        // $("#app").addClass('hidden')
+        $("#app").addClass('hidden')
         document.getElementById('logout').disabled = true;
     }
 }
@@ -83,15 +83,17 @@ function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
     
-    liff.getProfile().then(function(profile) {        
-        document.getElementById('customerName').textContent = profile.displayName;
-
-        $("#profilePicture").attr("src", profile.pictureUrl);
-        $("#profilePicture").attr("alt", 'Profile Picture');
-        
-    }).catch(function(error) {
-        window.alert('Error getting profile: ' + error);
-    });
+    if(liff.isLoggedIn()){
+        liff.getProfile().then(function(profile) {        
+            document.getElementById('customerName').textContent = profile.displayName;
+    
+            $("#profilePicture").attr("src", profile.pictureUrl);
+            $("#profilePicture").attr("alt", 'Profile Picture');
+            
+        }).catch(function(error) {
+            window.alert('Error getting profile: ' + error);
+        });
+    }
 }
  
 /**
