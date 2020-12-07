@@ -1,3 +1,57 @@
+window.onload = function() {
+    const useNodeJS = false;   // if you are not using a node server, set this value to false
+    const defaultLiffId = "1655321821-78Dvpqmd";   // change the default LIFF value if you are not using a node server
+ 
+    // DO NOT CHANGE THIS
+    let myLiffId = "";
+ 
+    // if node is used, fetch the environment variable and pass it to the LIFF method
+    // otherwise, pass defaultLiffId
+    if (useNodeJS) {
+        fetch('/send-id')
+            .then(function(reqResponse) {
+                return reqResponse.json();
+            })
+            .then(function(jsonResponse) {
+                myLiffId = jsonResponse.id;
+                initializeLiffOrDie(myLiffId);
+            })
+            .catch(function(error) {
+                document.getElementById("liffAppContent").classList.add('hidden');
+                document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
+            });
+    } else {
+        myLiffId = defaultLiffId;
+        initializeLiffOrDie(myLiffId);
+    }
+};
+
+
+function initializeLiffOrDie(myLiffId) {
+    if (!myLiffId) {
+        document.getElementById("app").classList.add('hidden');
+        document.getElementById("liffIdErrorMessage").classList.remove('hidden');
+    } else {
+        initializeLiff(myLiffId);
+    }
+}
+
+function initializeLiff(myLiffId) {
+    liff
+        .init({
+            liffId: myLiffId
+        })
+        .then(() => {
+            // start to use LIFF's api
+            initializeApp();
+        })
+        .catch((err) => {
+            document.getElementById("app").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+        });
+}
+
+// batas kode liff
 var pesanan = {
     burger: 0,
     frenchFries: 0,
