@@ -101,8 +101,8 @@ function displayLiffData() {
 */
 function displayIsInClientInfo() {
     if (liff.isInClient()) {
-        document.getElementById('login').addClass('hidden');
-        document.getElementById('logout').addClass('hidden');
+        $("#login").addClass('hidden'); 
+        $("#logout").addClass('hidden');   
     } 
 }
 
