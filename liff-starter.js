@@ -109,7 +109,6 @@ function displayIsInClientInfo() {
 function registerButtonHandlers() {
 
     $('#externalBrowser').click(function(){
-        console.log("clicked");
         liff.openWindow({
             url: 'https://burgershot.herokuapp.com/',
             external: true
@@ -125,7 +124,8 @@ function registerButtonHandlers() {
     $('#logout').click(function(){
         if (liff.isLoggedIn()) {
             liff.logout();
-        }
+            window.location.reload();
+          }
     });
 
     $('#sendMessageButton').click(function(){
