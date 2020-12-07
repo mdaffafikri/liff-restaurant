@@ -102,14 +102,8 @@ function registerButtonHandlers() {
         //     url: 'https://mabar.herokuapp.com/',
         //     external: true
         // });
-        liff.getProfile()
-        .then(profile => {
-            const name = profile.displayName
-        })
-        .catch((err) => {
-            console.log('error', err);
-        });
-        document.getElementById('text').textContent = name;
+        liff.getProfile().then(function(profile) {
+            document.getElementById('text').textContent = profile.userId;})
     });
 
     $('#closeWindowButton').click(function(){
