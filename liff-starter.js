@@ -94,3 +94,7 @@ function displayIsInClientInfo() {
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
     }
 }
+
+liff.getProfile().then(function(profile){
+    console.log(profile.displayName);
+})
