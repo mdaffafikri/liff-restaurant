@@ -1,6 +1,6 @@
 window.onload = function() {
     const useNodeJS = false;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1655321821-78Dvpqmd";   // change the default LIFF value if you are not using a node server
+    const defaultLiffId = "1655315936-A5V3LVXJ";   // change the default LIFF value if you are not using a node server
  
     // DO NOT CHANGE THIS
     let myLiffId = "";
@@ -53,7 +53,7 @@ function initializeLiff(myLiffId) {
             initializeApp();
         })
         .catch((err) => {
-            // document.getElementById("liffAppContent").classList.add('hidden');
+            document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
 }
@@ -96,15 +96,58 @@ function displayIsInClientInfo() {
 }
 
 function registerButtonHandlers() {
-    $('#pesan').click(function(){
+    $('#openWindowButton').click(function(){
         console.log("clicked");
         liff.openWindow({
             url: 'https://mabar.herokuapp.com/',
             external: true
         });
     });
+
+    $('#closeWindowButton').click(function(){
+        if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
+        } else {
+            liff.closeWindow();
+        }
+    });
+    
+    $('#liffLoginButton').click(function(){
+        if (!liff.isLoggedIn()) {
+            liff.login();
+        }
+    });
+
+    $('#sendMessageButton').click(function(){
+        if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
+        } else {
+            liff.sendMessages([{
+                'type': 'text',
+                'text': "Anda telah menggunakan fitur Send Message!"
+            }])
+            // .then(function() {
+            //     window.alert('Ini adalah pesan dari fitur Send Message');
+            // }).catch(function(error) {
+            //     window.alert('Error sending message: ' + error);
+            // });
+        }
+    });
 }
 
-// liff.getProfile().then(function(profile){
-//     console.log(profile.displayName);
-// })
+function sendAlertIfNotInClient() {
+    alert('This button is unavailable as LIFF is currently being opened in an external browser.');
+}
+ 
+/**
+* Toggle specified element
+* @param {string} elementId The ID of the selected element
+*/
+function toggleElement(elementId) {
+    const elem = document.getElementById(elementId);
+    if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+        elem.style.display = 'none';
+    } else {
+        elem.style.display = 'block';
+    }
+}

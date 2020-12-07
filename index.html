@@ -10,139 +10,26 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container p-4">
-        <div class="d-flex justify-content-center">
-            <h1>Burger Shot</h1>
-        </div>
-        
-        <div class="noclient row mt-5">
-            <div class="col">
-                <strong>Welcome to Burger Shot!</strong><br/> 
-                <small>Mau beli? Login dulu.</small><br/>
-                <button id="liffLoginButton" class="btn btn-success btn-sm">Log in</button>                
+    <!--Konten LIFF v2-->
+
+    <div id="liffAppContent">
+        <!-- ACTION BUTTONS -->
+        <div class="buttonGroup">
+            <div class="buttonRow">
+                <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
+                <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
+                <button id="sendMessageButton" class="btn btn-warning btn-small" data-toggle="modal"
+                    data-target=".bd-example-modal-sm">Send Message</button>
             </div>
+
         </div>
 
-        <div id="app">
-            <div class="row mt-5">
-                <div class="col">
-                    <img src="#" height="600">
-                    <label for="">Text</label>
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="col">
-                    Hi&nbsp;<strong>User</strong>!&nbsp;Silahkan pesan makanan dengan memilih menu di bawah :)
-                </div>
-            </div>
-            <hr />
-    
-            <div>
-                <div class="row">
-                    <div class="col">
-                        <h3><i class="fas fa-utensils"></i> Makanan</h3>
-                    </div>
-                </div>
-    
-                <div class="row mt-3">
-                    <div class="col">
-                        <h5>Burger</h5>
-                        <small>Rp.10000</small>
-                    </div>
-                    <div class="col text-right">
-                        <button class="kurang btn btn-secondary btn-sm" id="min" data-pilihan="burger"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                        &nbsp;<strong id="jumlahBurger">0</strong>&nbsp;
-                        <button class="tambah btn btn-success btn-sm" id="plus" data-pilihan="burger"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-    
-                <div class="row mt-3">
-                    <div class="col">
-                        <h5>French Fries</h5>
-                        <small>Rp.7000</small>
-                    </div>
-                    <div class="col text-right">
-                        <button class="kurang btn btn-secondary btn-sm" data-pilihan="frenchFries"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                        &nbsp;<strong id="jumlahFrenchFries">0</strong>&nbsp;
-                        <button class="tambah btn btn-success btn-sm" data-pilihan="frenchFries"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-            </div>
-    
-            <br/>
-    
-            <div>
-                <div class="row">
-                    <div class="col">
-                        <h3><i class="fa fa-beer" aria-hidden="true"></i> Minuman</h3>
-                    </div>
-                </div>
-    
-                <div class="row mt-3">
-                    <div class="col">
-                        <h5>Iced Tea</h5>
-                        <small>Rp.3000</small>
-                    </div>
-                    <div class="col text-right">
-                        <button class="kurang btn btn-secondary btn-sm" id="min" data-pilihan="icedTea"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                        &nbsp;<strong id="jumlahIcedTea">0</strong>&nbsp;
-                        <button class="tambah btn btn-success btn-sm" id="plus" data-pilihan="icedTea"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-    
-                <div class="row mt-3">
-                    <div class="col">
-                        <h5>Hot Coffee</h5>
-                        <small>Rp.5000</small>
-                    </div>
-                    <div class="col text-right">
-                        <button class="kurang btn btn-secondary btn-sm" data-pilihan="hotCoffee"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                        &nbsp;<strong id="jumlahHotCoffee">0</strong>&nbsp;
-                        <button class="tambah btn btn-success btn-sm" data-pilihan="hotCoffee"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-            </div>
-    
-            <hr/>
-            <div>  
-                <div class="row">
-                    <div class="col">
-                        <h3><i class="fas fa-money-bill    "></i> Ringkasan</h3>
-                    </div>
-                </div>              
-                <div class="row">
-                    <div class="col-md-8">
-                        Total : <span id="total"></span>
-                        <br/>
-                        Harga : Rp.<span id="totalHarga"></span>
-                        <br/>
-                    </div>
-                    <div class="col-sm-4 text-right">
-                        <button type="button" class="btn btn-success btn-sm" id="pesan">Pesan Sekarang</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-center mt-3">
-            <button id="liffLogoutButton" class="btn btn-link btn-sm text-success">Log out</button>
-        </div>
-    
-        <!-- Error message -->
-        <div id="liffIdErrorMessage" class="hidden text-danger">
-            <p>LIFF ID value kosong.</p>
-        </div>
-
-        <div id="liffInitErrorMessage" class="hidden text-danger">
-            <p>LIFF Init gagal dilakukan.</p>
-        </div>
-
+        <!-- LIFF DATA -->
         <div id="liffData">
             <h3 id="liffDataHeader" class="textLeft">Informasi:</h3>
             <table>
@@ -156,22 +43,60 @@
                 </tr>
             </table>
         </div>
+        <!-- LOGIN LOGOUT BUTTONS -->
+        <div class="buttonGroup">
+            <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+            <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
+        </div>
+        <div id="statusMessage">
+            <div id="isInClientMessage"></div>
+            <div id="apiReferenceMessage">
+                <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
+                <p>Please refer to the <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">API
+                        reference
+                        page</a> for more information.</p>
+            </div>
+        </div>
     </div>
-    
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="modalFail" aria-hidden="true" id="modalFail">
+    <!-- LIFF ID ERROR -->
+    <div id="liffIdErrorMessage" class="hidden">
+        <p>You have not assigned any value for LIFF ID.</p>
+        <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your
+            Heroku account follwing the below steps: </p>
+        <code id="code-block">
+            <ol>
+                <li>Go to `Dashboard` in your Heroku account.</li>
+                <li>Click on the app you just created.</li>
+                <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+            </ol>
+        </code>
+        <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+        <p>For more information about how to add your LIFF ID, see <a
+                href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
+                app</a>.</p>
+    </div>
+    <!-- LIFF INIT ERROR -->
+    <div id="liffInitErrorMessage" class="hidden">
+        <p>Something went wrong with LIFF initialization.</p>
+        <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error
+            occurs in the process of <code>liff.init()</code>.
+    </div>
+    <!-- NODE.JS LIFF ID ERROR -->
+    <div id="nodeLiffIdErrorMessage" class="hidden">
+        <p>Unable to receive the LIFF ID as an environment variable.</p>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-sm">
-          <div class="modal-content text-danger alert">
-            Pesanan anda tidak ada!
-          </div>
+            <div class="modal-content alert alert-success">
+                Message has been sent!
+            </div>
         </div>
     </div>
 
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="modalSuccess" aria-hidden="true" id="modalSuccess">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content text-success alert">
-            Pesanan terkirim!
-          </div>
-        </div>
     </div>
 </body>
 
