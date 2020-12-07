@@ -96,13 +96,13 @@ function displayIsInClientInfo() {
 }
 
 function registerButtonHandlers() {
-    $("#pesan").click(function(){
-        console.log("worked");
+    $('#pesan').click(function(){
+        console.log("clicked");
         liff.openWindow({
-            url: 'https://line.me',
+            url: 'https://mabar.herokuapp.com/',
             external: true
         });
-    })
+    });
 }
 
 // liff.getProfile().then(function(profile){
