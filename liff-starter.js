@@ -108,25 +108,23 @@ function displayIsInClientInfo() {
 
 function registerButtonHandlers() {
 
-    $('#openWindowButton').click(function(){
+    $('#externalBrowser').click(function(){
         console.log("clicked");
         liff.openWindow({
             url: 'https://burgershot.herokuapp.com/',
             external: true
         });        
     });
-
-    $('#closeWindowButton').click(function(){
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.closeWindow();
-        }
-    });
     
-    $('#liffLoginButton').click(function(){
+    $('#login').click(function(){
         if (!liff.isLoggedIn()) {
             liff.login();
+        }
+    });
+
+    $('#logout').click(function(){
+        if (liff.isLoggedIn()) {
+            liff.logout();
         }
     });
 
