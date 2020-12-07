@@ -50,10 +50,10 @@ function initializeLiff(myLiffId) {
             // start to use LIFF's api
             initializeApp();
         })
-        // .catch((err) => {
-        //     document.getElementById("app").classList.add('hidden');
-        //     document.getElementById("liffInitErrorMessage").classList.remove('hidden');
-        // });
+        .catch((err) => {
+            document.getElementById("app").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+        });
 }
  
 /**
