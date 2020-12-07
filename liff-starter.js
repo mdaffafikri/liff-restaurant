@@ -80,10 +80,25 @@ function initializeApp() {
 function displayLiffData() {    
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    var userProfileName = liff.getProfile().then(function(profile){
-        return profile.displayName;
+    
+    liff.getProfile().then(function(profile) {
+        document.getElementById('userIdProfileField').textContent = profile.userId;
+        document.getElementById('text').textContent = profile.displayName;
+
+        const profilePictureDiv = document.getElementById('profilePictureDiv');
+        if (profilePictureDiv.firstElementChild) {
+            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        }
+        const img = document.createElement('img');
+        img.src = profile.pictureUrl;
+        img.alt = 'Profile Picture';
+        profilePictureDiv.appendChild(img);
+
+        document.getElementById('statusMessageField').textContent = profile.statusMessage;
+        toggleProfileData();
+    }).catch(function(error) {
+        window.alert('Error getting profile: ' + error);
     });
-    document.getElementById('text').textContent = userProfileName;
 }
  
 /**
