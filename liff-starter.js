@@ -95,6 +95,15 @@ function displayIsInClientInfo() {
     }
 }
 
-liff.getProfile().then(function(profile){
-    console.log(profile.displayName);
-})
+function registerButtonHandlers() {
+    $("#pesan").click(function(){
+        liff.openWindow({
+            url: 'https://line.me',
+            external: true
+        });
+    })
+}
+
+// liff.getProfile().then(function(profile){
+//     console.log(profile.displayName);
+// })
