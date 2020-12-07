@@ -97,7 +97,7 @@ function displayLiffData() {
         $("#profilePicture").attr("src", profile.pictureUrl);
         $("#profilePicture").attr("alt", 'Profile Picture');
 
-        document.getElementById('statusMessageField').textContent = profile.statusMessage;
+        // document.getElementById('statusMessageField').textContent = profile.statusMessage;
         toggleProfileData();
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
