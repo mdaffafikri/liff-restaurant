@@ -80,8 +80,6 @@ function initializeApp() {
 function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    document.getElementById('text').textContent = name;
-    
 }
  
 /**
@@ -111,6 +109,7 @@ function registerButtonHandlers() {
         .catch((err) => {
             console.log('error', err);
         });
+        document.getElementById('text').textContent = name;
     });
 
     $('#closeWindowButton').click(function(){
