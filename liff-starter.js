@@ -83,16 +83,16 @@ function displayLiffData() {
     
     liff.getProfile().then(function(profile) {
         // document.getElementById('userIdProfileField').textContent = profile.userId;
-        document.getElementById('text').textContent = profile.displayName;
+        document.getElementById('customerName').textContent = profile.displayName;
 
-        const profilePictureDiv = document.getElementById('profilePictureDiv');
-        if (profilePictureDiv.firstElementChild) {
-            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
-        }
-        const img = document.createElement('img');
-        img.src = profile.pictureUrl;
-        img.alt = 'Profile Picture';
-        profilePictureDiv.appendChild(img);
+        // const profilePictureDiv = document.getElementById('profilePictureDiv');
+        // if (profilePictureDiv.firstElementChild) {
+        //     profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        // }
+        // const img = document.createElement('img');
+        // img.src = profile.pictureUrl;
+        // img.alt = 'Profile Picture';
+        // profilePictureDiv.appendChild(img);
 
         document.getElementById('statusMessageField').textContent = profile.statusMessage;
         toggleProfileData();
