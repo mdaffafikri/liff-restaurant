@@ -80,7 +80,8 @@ function initializeApp() {
 function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    document.getElementById('text').textContent = liff.profile.displayName;
+    document.getElementById('text').textContent = name;
+    
 }
  
 /**
@@ -99,9 +100,16 @@ function displayIsInClientInfo() {
 function registerButtonHandlers() {
     $('#openWindowButton').click(function(){
         console.log("clicked");
-        liff.openWindow({
-            url: 'https://mabar.herokuapp.com/',
-            external: true
+        // liff.openWindow({
+        //     url: 'https://mabar.herokuapp.com/',
+        //     external: true
+        // });
+        liff.getProfile()
+        .then(profile => {
+            const name = profile.displayName
+        })
+        .catch((err) => {
+            console.log('error', err);
         });
     });
 
