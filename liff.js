@@ -28,7 +28,6 @@ window.onload = function() {
  
 /**
 * Check if myLiffId is null. If null do not initiate liff.
-* @param {string} myLiffId The LIFF ID of the selected element
 */
 function initializeLiffOrDie(myLiffId) {
     if (!myLiffId) {
@@ -41,7 +40,6 @@ function initializeLiffOrDie(myLiffId) {
  
 /**
 * Initialize LIFF
-* @param {string} myLiffId The LIFF ID of the selected element
 */
 function initializeLiff(myLiffId) {
     liff
