@@ -1,3 +1,4 @@
+window.onload = function() {
     const useNodeJS = false;   // if you are not using a node server, set this value to false
     const defaultLiffId = "1655321821-78Dvpqmd";   // change the default LIFF value if you are not using a node server
  
@@ -16,13 +17,14 @@
                 initializeLiffOrDie(myLiffId);
             })
             .catch(function(error) {
-                document.getElementById("liffAppContent").classList.add('hidden');
+                document.getElementById("app").classList.add('hidden');
                 document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
             });
     } else {
         myLiffId = defaultLiffId;
         initializeLiffOrDie(myLiffId);
     }
+};
  
 /**
 * Check if myLiffId is null. If null do not initiate liff.
