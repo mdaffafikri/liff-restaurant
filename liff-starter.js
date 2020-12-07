@@ -53,7 +53,7 @@ function initializeLiff(myLiffId) {
             initializeApp();
         })
         .catch((err) => {
-            document.getElementById("liffAppContent").classList.add('hidden');
+            // document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
 }
