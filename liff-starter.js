@@ -96,14 +96,16 @@ function displayIsInClientInfo() {
 }
 
 function registerButtonHandlers() {
+    liff.getProfile().then(function(profile) {
+        document.getElementById('text').textContent = profile.userName;
+    });
+
     $('#openWindowButton').click(function(){
         console.log("clicked");
         // liff.openWindow({
         //     url: 'https://mabar.herokuapp.com/',
         //     external: true
-        // });
-        liff.getProfile().then(function(profile) {
-            document.getElementById('text').textContent = profile.userId;})
+        // });        
     });
 
     $('#closeWindowButton').click(function(){
