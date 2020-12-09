@@ -73,14 +73,6 @@ function initializeApp() {
         $("#logout").addClass('hidden');   
         $("#app").addClass('hidden');
     }
-
-    var pesanan = {
-        burger: 0,
-        frenchFries: 0,
-        icedTea: 0,
-        hotCoffee: 0
-    }
-    var totalHarga = 0;
 }
  
 /**
@@ -136,6 +128,7 @@ function registerButtonHandlers() {
     });
 
     $('#pesan').click(function(){
+        console.log("clicked");
         if (!liff.isInClient()) {
             $("#modalNotInClient").modal();
         } 
@@ -155,34 +148,6 @@ function registerButtonHandlers() {
                 });
             }
         }
-    });
-
-    $(document).on('click', '.tambah', function (event) {
-        if ($(this).data("pilihan") === 'burger') {
-            pesanan.burger++
-            totalHarga += 10000
-            $("#jumlahBurger").html(pesanan.burger)
-        }
-    
-        if ($(this).data("pilihan") === 'frenchFries') {
-            pesanan.frenchFries++
-            totalHarga += 7000
-            $("#jumlahFrenchFries").html(pesanan.frenchFries)
-        }
-    
-        if ($(this).data("pilihan") === 'icedTea') {
-            pesanan.icedTea++
-            totalHarga += 3000
-            $("#jumlahIcedTea").html(pesanan.icedTea)
-        }
-    
-        if ($(this).data("pilihan") === 'hotCoffee') {
-            pesanan.hotCoffee++
-            totalHarga += 5000
-            $("#jumlahHotCoffee").html(pesanan.hotCoffee)
-        }
-        $("#total").html(`Burger ${pesanan.burger}, French Fries ${pesanan.frenchFries}, Iced Tea ${pesanan.icedTea}, Hot Coffee ${pesanan.hotCoffee}`);
-        $("#totalHarga").html(totalHarga);
     });
 }
 
