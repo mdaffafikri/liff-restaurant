@@ -138,7 +138,7 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': `Hai ${document.getElementById('customerName').textContent}!
+                    'text': `Hai ${document.getElementById('customerName').textContent}!\n \
                     Terima kasih telah memesan makanan di Burger Shot! Berikut ini adalah rincian pesanan anda:
                     ${(pesanan.burger > 0) ? "Burger : "+pesanan.burger : ""} 
                     `
