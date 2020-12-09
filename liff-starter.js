@@ -138,7 +138,9 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': 'Hai'
+                    'text': `Hai ${document.getElementById('customerName').textContent}! \n
+                    Terima kasih telah memesan makanan di Burger Shot! Berikut ini adalah rincian pesanan anda: \n
+                    `
                 }])
                 .then(function() {
                     $("#modalSuccess").modal();
