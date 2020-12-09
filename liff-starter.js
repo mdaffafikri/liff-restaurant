@@ -70,19 +70,6 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         $("#login").addClass('hidden');   
         $("#greeting").addClass('hidden');
-
-        // if(liff.isLoggedIn()){
-        //     liff.getProfile().then(function(profile) {        
-        //         document.getElementById('customerName').textContent = profile.displayName;
-        
-        //         $("#profilePicture").attr("src", profile.pictureUrl);
-        //         $("#profilePicture").attr("alt", 'Profile Picture');
-                
-        //     }).catch(function(error) {
-        //         window.alert('Error getting profile: ' + error);
-        //     })
-        // }
-        
     }
     else {
         $("#logout").addClass('hidden');   
