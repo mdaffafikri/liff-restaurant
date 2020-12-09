@@ -71,17 +71,17 @@ function initializeApp() {
         $("#login").addClass('hidden');   
         $("#greeting").addClass('hidden');
 
-        if(liff.isLoggedIn()){
-            liff.getProfile().then(function(profile) {        
-                document.getElementById('customerName').textContent = profile.displayName;
+        // if(liff.isLoggedIn()){
+        //     liff.getProfile().then(function(profile) {        
+        //         document.getElementById('customerName').textContent = profile.displayName;
         
-                $("#profilePicture").attr("src", profile.pictureUrl);
-                $("#profilePicture").attr("alt", 'Profile Picture');
+        //         $("#profilePicture").attr("src", profile.pictureUrl);
+        //         $("#profilePicture").attr("alt", 'Profile Picture');
                 
-            }).catch(function(error) {
-                window.alert('Error getting profile: ' + error);
-            })
-        }
+        //     }).catch(function(error) {
+        //         window.alert('Error getting profile: ' + error);
+        //     })
+        // }
         
     }
     else {
@@ -97,17 +97,17 @@ function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
     
-    // if(liff.isLoggedIn()){
-    //     liff.getProfile().then(function(profile) {        
-    //         document.getElementById('customerName').textContent = profile.displayName;
+    if(liff.isLoggedIn()){
+        liff.getProfile().then(function(profile) {        
+            document.getElementById('customerName').textContent = profile.displayName;
     
-    //         $("#profilePicture").attr("src", profile.pictureUrl);
-    //         $("#profilePicture").attr("alt", 'Profile Picture');
+            $("#profilePicture").attr("src", profile.pictureUrl);
+            $("#profilePicture").attr("alt", 'Profile Picture');
             
-    //     }).catch(function(error) {
-    //         window.alert('Error getting profile: ' + error);
-    //     })
-    // }
+        }).catch(function(error) {
+            window.alert('Error getting profile: ' + error);
+        })
+    }
 }
  
 /**
