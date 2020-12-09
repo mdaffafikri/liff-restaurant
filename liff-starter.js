@@ -128,26 +128,32 @@ function registerButtonHandlers() {
           }
     });
 
-    $('#sendMessageButton').click(function(){
+    $('#order').click(function(){
         if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': "Anda telah menggunakan fitur Send Message!"
-            }])
-            // .then(function() {
-            //     window.alert('Ini adalah pesan dari fitur Send Message');
-            // }).catch(function(error) {
-            //     window.alert('Error sending message: ' + error);
-            // });
+            $("#modalNotInClient").modal();
+        } 
+        else {
+            if(!totalHarga){
+                $("#modalFail").modal();
+            }
+            else{
+                liff.sendMessages([{
+                    'type': 'text',
+                    'text': "Anda telah menggunakan fitur Send Message!"
+                }])
+                .then(function() {
+                    $("#modalSuccess").modal();
+                }).catch(function(error) {
+                    window.alert('Error sending message: ' + error);
+                });
+            }
         }
     });
 }
 
-function sendAlertIfNotInClient() {
-    alert('This button is unavailable as LIFF is currently being opened in an external browser.');
-}
+// function sendAlertIfNotInClient() {
+//     alert('Tidak bisa memesan melalui external browser!');
+// }
  
 /**
 * Toggle specified element
