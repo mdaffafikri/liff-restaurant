@@ -128,7 +128,7 @@ function registerButtonHandlers() {
           }
     });
 
-    $('#order').click(function(){
+    $('#pesan').click(function(){
         if (!liff.isInClient()) {
             $("#modalNotInClient").modal();
         } 

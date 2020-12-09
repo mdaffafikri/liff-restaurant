@@ -85,7 +85,7 @@ $(document).on("click", '.kurang', function (event) {
     $("#totalHarga").html(totalHarga);   
 });
 
-$("#order").click(function(){
+$("#pesan").click(function(){
     if(!totalHarga){
         $("#modalFail").modal();
     }
