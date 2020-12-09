@@ -64,23 +64,27 @@ function initializeLiff(myLiffId) {
 function initializeApp() {
     displayLiffData();
     registerButtonHandlers();
+    displayIsInClientInfo() 
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         $("#login").addClass('hidden');   
         $("#greeting").addClass('hidden');
 
-        liff.getProfile().then(function(profile) {        
-            document.getElementById('customerName').textContent = profile.displayName;
-    
-            $("#profilePicture").attr("src", profile.pictureUrl);
-            $("#profilePicture").attr("alt", 'Profile Picture');
-            
-        }).catch(function(error) {
-            window.alert('Error getting profile: ' + error);
-        });
+        if(liff.isLoggedIn()){
+            liff.getProfile().then(function(profile) {        
+                document.getElementById('customerName').textContent = profile.displayName;
+        
+                $("#profilePicture").attr("src", profile.pictureUrl);
+                $("#profilePicture").attr("alt", 'Profile Picture');
+                
+            }).catch(function(error) {
+                window.alert('Error getting profile: ' + error);
+            });
+        }
+        
     }
-    } else {
+    else {
         $("#logout").addClass('hidden');   
         $("#app").addClass('hidden');
     }
@@ -109,12 +113,12 @@ function displayLiffData() {
 /**
 * Toggle the login/logout buttons based on the isInClient status, and display a message accordingly
 */
-// function displayIsInClientInfo() {
-//     if (liff.isInClient()) {
-//         $("#login").addClass('hidden'); 
-//         $("#logout").addClass('hidden');   
-//     } 
-// }
+function displayIsInClientInfo() {
+    if (liff.isInClient()) {
+        $("#login").addClass('hidden'); 
+        $("#logout").addClass('hidden');   
+    } 
+}
 
 function registerButtonHandlers() {
 
@@ -150,7 +154,7 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': `Hai user`
+                    'text': `Hai ${}`
                 }])
                 .then(function() {
                     $("#modalSuccess").modal();
