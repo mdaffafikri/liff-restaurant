@@ -252,12 +252,3 @@ $(document).on("click", '.kurang', function (event) {
     $("#total").html(`Burger ${pesanan.burger}, French Fries ${pesanan.frenchFries}, Iced Tea ${pesanan.icedTea}, Hot Coffee ${pesanan.hotCoffee}`);
     $("#totalHarga").html(totalHarga);   
 });
-
-$("#pesan").click(function(){
-    if(!totalHarga){
-        $("#modalFail").modal();
-    }
-    else{
-        $("#modalSuccess").modal();
-    }
-})
