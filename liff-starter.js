@@ -154,7 +154,7 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': `Hai`
+                    'text': 'Hai'
                 }])
                 .then(function() {
                     $("#modalSuccess").modal();
