@@ -69,6 +69,17 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         $("#login").addClass('hidden');   
         $("#greeting").addClass('hidden');
+
+        liff.getProfile().then(function(profile) {        
+            document.getElementById('customerName').textContent = profile.displayName;
+    
+            $("#profilePicture").attr("src", profile.pictureUrl);
+            $("#profilePicture").attr("alt", 'Profile Picture');
+            
+        }).catch(function(error) {
+            window.alert('Error getting profile: ' + error);
+        });
+    }
     } else {
         $("#logout").addClass('hidden');   
         $("#app").addClass('hidden');
@@ -82,17 +93,17 @@ function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
     
-    if(liff.isLoggedIn()){
-        liff.getProfile().then(function(profile) {        
-            document.getElementById('customerName').textContent = profile.displayName;
+    // if(liff.isLoggedIn()){
+    //     liff.getProfile().then(function(profile) {        
+    //         document.getElementById('customerName').textContent = profile.displayName;
     
-            $("#profilePicture").attr("src", profile.pictureUrl);
-            $("#profilePicture").attr("alt", 'Profile Picture');
+    //         $("#profilePicture").attr("src", profile.pictureUrl);
+    //         $("#profilePicture").attr("alt", 'Profile Picture');
             
-        }).catch(function(error) {
-            window.alert('Error getting profile: ' + error);
-        });
-    }
+    //     }).catch(function(error) {
+    //         window.alert('Error getting profile: ' + error);
+    //     });
+    // }
 }
  
 /**
@@ -108,11 +119,11 @@ function displayLiffData() {
 function registerButtonHandlers() {
 
     $('#externalBrowser').click(function(){
-        // liff.openWindow({
-        //     url: 'https://burgershot.herokuapp.com/',
-        //     external: true
-        // });
-        console.log("clicked");        
+        liff.openWindow({
+            url: 'https://burgershot.herokuapp.com/',
+            external: true
+        });
+        // console.log("clicked");        
     });
     
     $('#login').click(function(){
@@ -139,7 +150,7 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': "Anda telah menggunakan fitur Send Message!"
+                    'text': `Hai user`
                 }])
                 .then(function() {
                     $("#modalSuccess").modal();
