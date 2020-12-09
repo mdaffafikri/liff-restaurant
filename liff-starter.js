@@ -238,6 +238,9 @@ $(document).on("click", '.kurang', function (event) {
             $("#jumlahHotCoffee").html(pesanan.hotCoffee)
         }
     }
-    $("#total").html(`Burger ${pesanan.burger}, French Fries ${pesanan.frenchFries}, Iced Tea ${pesanan.icedTea}, Hot Coffee ${pesanan.hotCoffee}`);
+    $("#total").html(`${(pesanan.burger > 0) ? "Burger : "+pesanan.burger : ""} 
+    ${(pesanan.frenchFries > 0) ? "French Fries : "+pesanan.frenchFries : ""} 
+    ${(pesanan.icedTea > 0) ? "Iced Tea : "+pesanan.icedTea : ""} 
+    ${(pesanan.hotCoffee > 0) ? "Hot Coffee : "+pesanan.hotCoffee : ""} `);
     $("#totalHarga").html(totalHarga);   
 });
