@@ -138,7 +138,7 @@ function registerButtonHandlers() {
             else{
                 liff.sendMessages([{
                     'type': 'text',
-                    'text': `Hai ${document.getElementById('customerName').textContent}!\nTerima kasih telah memesan makanan di Burger Shot! Berikut ini adalah rincian pesanan anda:\n\n-${(pesanan.burger > 0) ? "Burger : "+pesanan.burger+"\n" : ""}-${(pesanan.frenchFries > 0) ? "French Fries : "+pesanan.frenchFries+"\n" : ""}-${(pesanan.icedTea > 0) ? "Iced Tea : "+pesanan.icedTea+"\n" : ""}-${(pesanan.hotCoffee > 0) ? "Hot Coffee : "+pesanan.hotCoffee+"\n" : ""}`
+                    'text': `Hai ${document.getElementById('customerName').textContent}!\n\nTerima kasih telah memesan makanan di Burger Shot! Berikut ini adalah rincian pesanan anda:\n\n-${(pesanan.burger > 0) ? "Burger : "+pesanan.burger+"\n" : ""}-${(pesanan.frenchFries > 0) ? "French Fries : "+pesanan.frenchFries+"\n" : ""}-${(pesanan.icedTea > 0) ? "Iced Tea : "+pesanan.icedTea+"\n" : ""}-${(pesanan.hotCoffee > 0) ? "Hot Coffee : "+pesanan.hotCoffee+"\n" : ""}\n\nTotal : Rp.${totalHarga}`
                 }])
                 .then(function() {
                     $("#modalSuccess").modal();
