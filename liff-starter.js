@@ -194,7 +194,7 @@ $(document).on('click', '.tambah', function (event) {
         ${(pesanan.burger > 0) ? "Burger "+pesanan.burger : ""} 
         ${(pesanan.frenchFries > 0) ? "French Fries "+pesanan.frenchFries : ""} 
         ${(pesanan.icedTea > 0) ? "Iced Tea "+pesanan.icedTea : ""} 
-        ${(pesanan.hotCoffee > 0) ? "Hot Coffeee "+pesanan.hotCoffee : ""} 
+        ${(pesanan.hotCoffee > 0) ? "Hot Coffee "+pesanan.hotCoffee : ""} 
         `);
     $("#totalHarga").html(totalHarga);
 });
@@ -247,7 +247,7 @@ $(document).on("click", '.kurang', function (event) {
         ${(pesanan.burger > 0) ? "Burger "+pesanan.burger : ""} 
         ${(pesanan.frenchFries > 0) ? "French Fries "+pesanan.frenchFries : ""} 
         ${(pesanan.icedTea > 0) ? "Iced Tea "+pesanan.icedTea : ""} 
-        ${(pesanan.hotCoffee > 0) ? "Hot Coffeee "+pesanan.hotCoffee : ""} 
+        ${(pesanan.hotCoffee > 0) ? "Hot Coffee "+pesanan.hotCoffee : ""} 
         `);
     $("#totalHarga").html(totalHarga);   
 });
