@@ -141,6 +141,9 @@ function registerButtonHandlers() {
                     'text': `Hai ${document.getElementById('customerName').textContent}!\n \
                     Terima kasih telah memesan makanan di Burger Shot! Berikut ini adalah rincian pesanan anda:
                     ${(pesanan.burger > 0) ? "Burger : "+pesanan.burger : ""} 
+                    ${(pesanan.frenchFries > 0) ? "French Fries : "+pesanan.frenchFries : ""} 
+                    ${(pesanan.icedTea > 0) ? "Iced Tea : "+pesanan.icedTea : ""} 
+                    ${(pesanan.hotCoffee > 0) ? "Hot Coffee : "+pesanan.hotCoffee : ""} 
                     `
                 }])
                 .then(function() {
