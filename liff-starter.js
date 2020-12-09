@@ -80,7 +80,7 @@ function initializeApp() {
                 
             }).catch(function(error) {
                 window.alert('Error getting profile: ' + error);
-            });
+            })
         }
         
     }
