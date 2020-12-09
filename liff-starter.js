@@ -108,10 +108,11 @@ function displayLiffData() {
 function registerButtonHandlers() {
 
     $('#externalBrowser').click(function(){
-        liff.openWindow({
-            url: 'https://burgershot.herokuapp.com/',
-            external: true
-        });        
+        // liff.openWindow({
+        //     url: 'https://burgershot.herokuapp.com/',
+        //     external: true
+        // });
+        console.log("clicked");        
     });
     
     $('#login').click(function(){
